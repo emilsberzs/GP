@@ -18,3 +18,23 @@
 - Alternatively, we can use push() to save where the origin was, and then pop() once the transformation has been done, and return to stored origin point. They give us temporary option to mess around with things.  
 
 # Crash course in OOP
+- Object oriented programming is paradigm based on:
+    1. Attributes/Properties:
+        - Objects that contain data, in the form of fields
+    2. Code in the form of methods or functions
+- Behaviors and properties can be encapsulated in a Class:
+```
+Class Ball
+    Methods:
+        bounce()
+        move()
+        inflate()
+    
+    Attributes:
+        var color;
+        var size;
+```
+- Then from this class we can create objects with different attributes (like a cookie cutter):
+    - Basketball
+    - Baseball
+    - etc.
