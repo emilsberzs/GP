@@ -4,39 +4,47 @@
 // Adapted from https://github.com/nature-of-code/
 // released under MIT license
 
-var ball;
+var balls = [];
 ///////////////////////////////////////////////
 function setup() {
-  createCanvas(900,600);
-  ball = new Ball();
+  createCanvas(900, 600);
+  for (var i = 0; i < 100; i++) {
+    balls.push(new Ball);
+  }
+  background(0);
 }
 ////////////////////////////////////////////////
 function draw() {
-  background(0);
-  ball.run();
+  for (var i = 0; i < 99; i++) {
+    balls[i].run();
+  }
 }
 ///////////////////////////////////////////////
 class Ball {
 
-  constructor(){
+  constructor() {
+    var randomX = width / 2 + random(-100, 100);
+    var randomY = height / 2 + random(-100, 100);
+    this.prevLocation = new createVector(randomX, randomY);
     this.velocity = new createVector(0, 0);
-    this.location = new createVector(width/2, height/2);
+    this.location = new createVector(randomX, randomY);
     this.acceleration = new createVector(0, 0);
     this.maxVelocity = 5;
   }
 
-  run(){
+  run() {
     this.draw();
     this.move();
-    this.edges();
+    //this.edges();
   }
 
-  draw(){
-    fill(125);
-    ellipse(this.location.x, this.location.y, 40, 40);
+  draw() {
+    stroke(255);
+    line(this.prevLocation.x, this.prevLocation.y, this.location.x, this.location.y)
+    this.prevLocation = this.location.copy();
   }
 
-  move(){
+  move() {
     var mouse = createVector(mouseX, mouseY);
     var dir = p5.Vector.sub(mouse, this.location);
     dir.normalize();
@@ -47,10 +55,10 @@ class Ball {
     this.location.add(this.velocity);
   }
 
-  edges(){
-    if (this.location.x<0) this.location.x=width;
-    else if (this.location.x>width) this.location.x = 0;
-    else if (this.location.y<0) this.location.y = height;
-    else if (this.location.y>height) this.location.y = 0;
-  }
+  // edges() {
+  //   if (this.location.x < 0) this.location.x = width;
+  //   else if (this.location.x > width) this.location.x = 0;
+  //   else if (this.location.y < 0) this.location.y = height;
+  //   else if (this.location.y > height) this.location.y = 0;
+  // }
 }
