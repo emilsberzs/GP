@@ -10,7 +10,7 @@ function setup() {
 function draw() {
     background(220);
 
-    noiseDetail(4);
+    noiseDetail(6);
 
     noFill();
     beginShape();
