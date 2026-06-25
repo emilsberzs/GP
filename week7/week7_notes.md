@@ -1,4 +1,4 @@
-## Generative techinuqes part2
+## Generative techinuqes part1, continued
 ## 2D noise
 - ![alt text](image.png)
 - ![alt text](image-1.png)
