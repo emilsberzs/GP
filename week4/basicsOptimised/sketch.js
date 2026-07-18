@@ -1,3 +1,5 @@
+/// <reference types="matter-js" />
+
 //////////////////////////////////////////////////
 // COURSERA GRAPHICS PROGRAMMING
 //////////////////////////////////////////////////
@@ -24,9 +26,9 @@ function setup() {
   engine = Engine.create();
 
   // create two boxes and a ground
-  box1 = Bodies.rectangle(200, 200, 80, 80, {restitution:.8, friction: .5});
+  box1 = Bodies.rectangle(200, 200, 80, 80, { restitution: .8, friction: .5 });
 
-  var options = {isStatic: true, angle: Math.PI * 0.06};
+  var options = { isStatic: true, angle: Math.PI * 0.06 };
   ground = Bodies.rectangle(400, 500, width, 20, options);
 
   // add all of the bodies to the world
